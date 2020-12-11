@@ -42,13 +42,16 @@ namespace _01_CafeClasses
         }
 
         //Helper - to get the correct 
-        private Meal GetMealByMealName(string mealName)
+        public Meal GetMealByMealName(string mealName)
         {
             //go for each meals to find the right meal
             foreach(Meal order in _listOfMeals)
             {
-                if (order.MealName == mealName)
-                    return order;
+                if (order.MealName.ToLower() == mealName.ToLower())
+                {
+                    return order; 
+                }
+                    
             }
             //if can't find it
             return null;

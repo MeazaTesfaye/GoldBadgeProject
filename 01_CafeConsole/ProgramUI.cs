@@ -15,6 +15,7 @@ namespace _01_CafeConsole
         //method that runs/starts the application
         public void Run()
         {
+            SeedMealList();
             Menu();
         }
 
@@ -27,7 +28,7 @@ namespace _01_CafeConsole
                 "2.View all menu\n" +
                 "3.View menu By Meal Name\n" +
                 "4.Delete Existing menu\n" +
-                "5. Exit");
+                "5.Exit");
             string input = Console.ReadLine();
             //Evaluate the user's input and act accordingly
             switch (input)
@@ -121,17 +122,69 @@ namespace _01_CafeConsole
         //View all Menu
         private void ViewCurrentMemu()
         {
+            Console.Clear();
             List<Meal> listOfMeal = _cafeRepo.GetListOfMeals();
+            foreach(Meal newMeal in listOfMeal)
+            {
+                Console.WriteLine($"Meal: {newMeal.MealName}\n" +
+                    $"Description: {newMeal.Description}");
+            }
         }
         //View menu By Meal Name
         private void ViewMenuByMealName()
         {
+            Console.Clear();
+            Console.WriteLine("Please enter the Meal number you like to order:");
+            string mealName = Console.ReadLine();
+            Meal newMeal = _cafeRepo.GetMealByMealName(mealName);
 
+            if(newMeal!= null)
+            {
+                Console.WriteLine($"Meal: {newMeal.MealNumber}\n" +
+                    $"Meal Name: {newMeal.MealName}" +
+                    $"Description: {newMeal.Description}\n" +
+                    $"Price: {newMeal.Price}\n" +
+                    $"Our Menu: {newMeal.ourMenu}\n" +
+                    $"Ingredients: {newMeal.Ingredients}");
+            }
+
+            else
+            {
+                Console.WriteLine("There is no menu name by that name");
+              
+            }
         }
 
         //Delete Existing Menu
         private void DeleteExistingMenu()
         {
+             Console.Clear();
+            ViewCurrentMemu();
+            Console.WriteLine("Please enter the menu you would like to delete?");
+            string input = Console.ReadLine();
+            bool wasDeleted = _cafeRepo.RemoveMealFromList(input);
+            if (wasDeleted)
+            {
+                Console.WriteLine("The menu was successfully deleted.");
+            }
+            else
+            {
+                Console.WriteLine("The menu could not be deleted.");
+            }
+           
+        }
+
+            private void SeedMealList()
+        {
+            // public Meal(int mealNumber, string mealName, string description, double price, OurMenu menu, List<string> ingredients)
+            
+            Meal tacoSalad = new Meal(1, "Taco Salad", "Mixed Greens", 8.95, OurMenu.Salad, new List<string>() { "Chile, Sour Cream, Tomatoes" });
+            Meal coffee = new Meal(2, "Cappuccino", "Hot", 2.79, OurMenu.Coffee, new List<string>(){ "milk froth, steamed milk"} );
+            Meal soup = new Meal(3, "Cream Of Chicken", "Thick Creamy soup Made with stock and pieces", 13.23, OurMenu.Soups, new List<string>() { "chicken, butter" });
+
+            _cafeRepo.AddMealToMenu(tacoSalad);
+            _cafeRepo.AddMealToMenu(coffee);
+            _cafeRepo.AddMealToMenu(soup);
 
         }
     }

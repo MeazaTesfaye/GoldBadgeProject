@@ -8,10 +8,11 @@ namespace _01_CafeClasses
 {
     public enum OurMenu
     {
-        CoffeeDrinks = 1,
-        Soups,
-        Salads,
-        Desserts 
+        
+         Salad = 1,
+         Coffee,
+         Soups,
+         Desserts 
     }
     // poco
     public class Meal
