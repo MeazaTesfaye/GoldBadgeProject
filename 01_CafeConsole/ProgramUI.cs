@@ -69,7 +69,7 @@ namespace _01_CafeConsole
             Console.Clear();
             Meal newMeal = new Meal();
             //MealNumber
-            Console.WriteLine("Enter for meal number");
+            Console.WriteLine("Enter for a meal number");
             string mNum = Console.ReadLine();
             newMeal.MealNumber = int.Parse(mNum);
             
@@ -89,7 +89,7 @@ namespace _01_CafeConsole
             //our menu
             Console.WriteLine("Enter the Menu nember\n" +
                 "1.CooffeDrinks\n" +
-                "2.Soupsn" +
+                "2.Soupsn\n" +
                 "3.Salads\n" +
                 "4.Desserts");
             string ourMenuAsString = Console.ReadLine();
@@ -97,8 +97,6 @@ namespace _01_CafeConsole
             newMeal.ourMenu = (OurMenu)ourMenuAsInt;
            
             //Ingridients 
-            
-
             bool AddIngredient = true;
             while(AddIngredient)
             {
@@ -176,7 +174,7 @@ namespace _01_CafeConsole
 
             private void SeedMealList()
         {
-            // public Meal(int mealNumber, string mealName, string description, double price, OurMenu menu, List<string> ingredients)
+            
             
             Meal tacoSalad = new Meal(1, "Taco Salad", "Mixed Greens", 8.95, OurMenu.Salad, new List<string>() { "Chile, Sour Cream, Tomatoes" });
             Meal coffee = new Meal(2, "Cappuccino", "Hot", 2.79, OurMenu.Coffee, new List<string>(){ "milk froth, steamed milk"} );

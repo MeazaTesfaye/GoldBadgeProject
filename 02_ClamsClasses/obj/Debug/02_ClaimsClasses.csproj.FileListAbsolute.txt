@@ -1,0 +1,6 @@
+C:\ElevenFiftyProjects\GoldBadgeChalleges\GoldBadge\02_ClamsClasses\obj\Debug\02_ClaimsClasses.csprojAssemblyReference.cache
+C:\ElevenFiftyProjects\GoldBadgeChalleges\GoldBadge\02_ClamsClasses\obj\Debug\02_ClaimsClasses.csproj.CoreCompileInputs.cache
+C:\ElevenFiftyProjects\GoldBadgeChalleges\GoldBadge\02_ClamsClasses\bin\Debug\02_ClamsClasses.dll
+C:\ElevenFiftyProjects\GoldBadgeChalleges\GoldBadge\02_ClamsClasses\bin\Debug\02_ClamsClasses.pdb
+C:\ElevenFiftyProjects\GoldBadgeChalleges\GoldBadge\02_ClamsClasses\obj\Debug\02_ClamsClasses.dll
+C:\ElevenFiftyProjects\GoldBadgeChalleges\GoldBadge\02_ClamsClasses\obj\Debug\02_ClamsClasses.pdb
