@@ -1,4 +1,5 @@
 ﻿using System;
+using _02_ClaimsClasses;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace _02_ClaimsTestes
@@ -7,8 +8,21 @@ namespace _02_ClaimsTestes
     public class ClaimsTest
     {
         [TestMethod]
-        public void TestMethod1()
+        public void TestForAddingClaim()
         {
+            //Arrange
+            Claims claim = new Claims();
+            ClaimsRepo claimsRepo = new ClaimsRepo();
+
+            //Act
+            claimsRepo.AddClaim(claim);
+            Claims claimFromClaimsID = claimsRepo.GetCalimByClaimID(claimsRepo.ClaimID);
+            //claim
+
+            //Assert 
+
+            
+
         }
     }
 }

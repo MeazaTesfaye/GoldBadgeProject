@@ -51,17 +51,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\03_BadgesConsoles\03_BadgesConsoles.csproj">
-      <Project>{a90b5ccf-68bd-46f3-bb4b-63737c3b5071}</Project>
-      <Name>03_BadgesConsoles</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\03_BadgesTestes\03_BadgesTestes.csproj">
-      <Project>{bb105d98-8914-4a9d-a828-add3f47f68b0}</Project>
-      <Name>03_BadgesTestes</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\03_Badges\03_BadgesClasses.csproj">
-      <Project>{e5bf5445-e324-46ec-a299-899651c76b26}</Project>
-      <Name>03_BadgesClasses</Name>
+    <ProjectReference Include="..\02_ClamsClasses\02_ClaimsClasses.csproj">
+      <Project>{62fee06f-7834-47c4-94fe-ca5465db7003}</Project>
+      <Name>02_ClaimsClasses</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

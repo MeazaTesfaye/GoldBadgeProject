@@ -9,13 +9,18 @@ namespace _03_Badges
     public class Badge
     {
         public int BadgeID { get; set; }
-        public List<string> DoorName { get; set; }
+        public string DoorName { get; set; }
 
         public Badge() { }
-        public Badge(int badgeId, List<string> doorName)
+        public Badge(int badgeId, string doorName)
         {
             BadgeID = badgeId;
             DoorName = doorName;
+        }
+
+        public void AddBadgeToDictionary(Dictionary<int, Badge> badgeCollection)
+        {
+            
         }
     }
 }

@@ -8,17 +8,11 @@ namespace _03_Badges
 {
     public class BadgesRepo
     {
-        private List<Badge> _badges = new List<Badge>();
-        public void DictionaryOfBadges(){
-        Dictionary<int, string> dict = new Dictionary<int, string>();
-        dict.Add(12345, "A5");
-
-       }
-
+        private Dictionary<int, Badge> _badges = new Dictionary<int, Badge>();
         //Create a new badges
         public void AddBadge(Badge badge)
         {
-            _badges.Add(badge);
+            _badges.Add(badge.BadgeID,badge);
         }
 
        
@@ -26,23 +20,23 @@ namespace _03_Badges
         private bool DeleteAllDoors(int badgeID)
         {
             Badge badges = GetBadgeByBadgeID(badgeID);
-            if (_badges.Remove(badges))
+            if (_badges.Remove(badgeID))
             {
                 return true;
             }
             return false;
         }
         //Read 
-        public List<Badge> GetAllBadges()
+        public Dictionary<int,Badge> GetAllBadges()
         {
             return _badges;
         }
-        // show a list with all numbers and door access
 
         // Helper
         public Badge GetBadgeByBadgeID(int badgeid)
         {
-            foreach (Badge badges in _badges)
+                Dictionary<int, Badge> badgeIDs = _badges.Get
+                foreach(Badge badges in _badges)
             {
                 if (badges.BadgeID == badgeid)
                 {
@@ -50,6 +44,12 @@ namespace _03_Badges
                 }
             }
             return null;
+        }
+
+        //Add BadeToDictionary
+        public void AddBadgeToDictionary(Dictionary<int,Badge> badgeCollection )
+        {
+
         }
     }
 }

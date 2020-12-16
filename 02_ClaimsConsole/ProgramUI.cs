@@ -61,7 +61,7 @@ namespace _02_ClaimsConsole
         private void ViewAllClaims()
         {
             Console.Clear();
-            List<Claims> listOfClaims = _claimsRepo.GetListOfClaims();
+            Queue<Claims> listOfClaims = _claimsRepo.GetAllClaims();
             foreach (Claims claim in listOfClaims)
             {
                 Console.WriteLine($"ClaimID: {claim.ClaimID}\n" +
@@ -98,15 +98,12 @@ namespace _02_ClaimsConsole
         {
             Console.Clear();
             ViewAllClaims();
-            Console.WriteLine("Please enter claim ID you would like to handle");
-            int claimID = int.Parse(Console.ReadLine());
-            Console.Clear();
-            var deleteClaimId = _claimsRepo.GetCalimByClaimID(claimID);
-            ViewClaims(deleteClaimId);
+            _claimsRepo.SeeNextClaim();
+           
             Console.WriteLine("Would like to deal with this claim now y/n?");
            if(YesOrNo())
             {
-                if (_claimsRepo.DeleteClaim(claimID))
+                if (_claimsRepo.DeleteClaim())
                 {
                     Console.WriteLine("Claim Id deleted successfully");
                 }

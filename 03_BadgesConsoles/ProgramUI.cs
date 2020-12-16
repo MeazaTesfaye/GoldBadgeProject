@@ -9,11 +9,11 @@ namespace _03_BadgesConsoles
 {
     public class ProgramUI
     {
-        private Badge badgeReo = new Badge();
-
+        BadgesRepo badgesRepo = new BadgesRepo();
         public void Run()
         {
-
+            SeeData();
+            Menu();
         }
 
         public bool Menu()
@@ -47,7 +47,7 @@ namespace _03_BadgesConsoles
             }
             return true;
         }
-
+        //Create
         private void AddBadges()
         {
             Console.Clear();
@@ -57,11 +57,19 @@ namespace _03_BadgesConsoles
             newBadge.BadgeID = int.Parse(badgeId);
             newBadge.DoorName = newBadge.DoorName;
         }
+        private void SeeData()
+        {
+            //public Badge(int 12345 badgeId, string doorName)A5
+            var badge1 = new Badge(2127, "A5");
+            var badge2 = new Badge(0912, "A7");
+            badgesRepo.AddBadge(badge1);
+            badgesRepo.AddBadge(badge2);
 
-        //Update all doors from an existing badge
+        }
+        //update
         public bool UpdateDoors(int badgeId, Badge newBadge)
         {
-            Badge oldBadgeid = GetBadgeByBadgeID(badgeId);
+            Badge oldBadgeid =  (badgeId);
             if (newBadge != null)
             {
                 oldBadgeid.BadgeID = newBadge.BadgeID;
@@ -74,11 +82,25 @@ namespace _03_BadgesConsoles
             }
         }
 
-        // list
-        private List<Badge> ViewAllDoors ()
+        //Delete
+        private void DeleteExistingBadge()
         {
-            GetAllBadges();
-            Console.WriteLine( ");
+            Console.Clear();
+            ViewAllDoors();
+            Console.WriteLine("");
+        }
+
+        // list
+        private void ViewAllDoors ()
+        {
+            Console.Clear();
+            Dictionary<int, Badge> listOfBadges = badgesRepo.GetAllBadges();
+            foreach(KeyValuePair<int, Badge> value in listOfBadges)
+            {
+                Console.WriteLine($"BadgeID: {value.Key}" +
+                    $"DoorName: {value.Value.DoorName}");
+            }
+            
         }
     }
 

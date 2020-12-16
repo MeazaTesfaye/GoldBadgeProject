@@ -8,19 +8,19 @@ namespace _02_ClaimsClasses
 {
     public class ClaimsRepo
     {
-        private List<Claims> _listOfClaims = new List<Claims>();
+        private Queue<Claims> claimIDs = new Queue<Claims>();
         
         
         //Read
-        public List<Claims> GetListOfClaims()
+        public Queue<Claims> GetAllClaims()
         {
-            return _listOfClaims;
+            return claimIDs;
         }
         // update
         public bool UpdateExistingClaims(int newclaimID, Claims newClaims)
         {
             Claims oldClaimId = GetCalimByClaimID(newclaimID);
-            if(newclaimID != null)
+            if(oldClaimId != null)
             {
                 oldClaimId.ClaimID = newClaims.ClaimID;
                 oldClaimId.ClaimType = newClaims.ClaimType;
@@ -30,25 +30,24 @@ namespace _02_ClaimsClasses
             {
                 return false;
             }
-        
         }   
         
         //Create
           public void AddClaim(Claims claims)
             {
-                _listOfClaims.Add(claims);
+                claimIDs.Enqueue(claims);
             }
         //Delete
         public bool DeleteClaim(Claims claimid)
         {
-            Claims claim = GetCalimByClaimID(claimid);
+            Claims claim = GetCalimByClaimID(claimid.ClaimID);
             if (claim == null)
             {
                 return false;
             }
-            int initialCount = _listOfClaims.Count;
-            _listOfClaims.Remove(claim);
-            if(initialCount > _listOfClaims.Count)
+            int initialCount = claimIDs.Count;
+            claimIDs.Dequeue();
+            if (initialCount > claimIDs.Count)
             {
                 return true;
             }
@@ -57,16 +56,18 @@ namespace _02_ClaimsClasses
                 return false;
             }
         }
-
-        private Claims GetCalimByClaimID(Claims claimid)
+        //Helper
+        public Claims SeeNextClaim()
         {
-            throw new NotImplementedException();
+
+         return  claimIDs.Peek();
+            
         }
 
         //Helper
         public Claims GetCalimByClaimID(int claimid)
     {
-        foreach(Claims claims in _listOfClaims)
+        foreach(Claims claims in claimIDs)
             {
          if (claims.ClaimID == claimid)
                 {
@@ -76,10 +77,11 @@ namespace _02_ClaimsClasses
             return null;
         }
 
-        public bool DeleteClaim(int deletedId)
+        public bool DeleteClaim()
         {
-            Claims claims = GetCalimByClaimID(deletedId);
-            if (_listOfClaims.Remove(claims))
+            int startingCount = claimIDs.Count;
+            claimIDs.Dequeue();
+            if(claimIDs.Count < startingCount)
             {
                 return true;
             }
@@ -87,7 +89,6 @@ namespace _02_ClaimsClasses
             {
                 return false;
             }
-
         }
     }
 }
