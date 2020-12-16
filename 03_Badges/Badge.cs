@@ -18,7 +18,7 @@ namespace _03_Badges
             DoorName = doorName;
         }
 
-        public void AddBadgeToDictionary(Dictionary<int, Badge> badgeCollection)
+       // public void AddBadgeToDictionary(Dictionary<int, Badge> badgeCollection)
         {
             
         }

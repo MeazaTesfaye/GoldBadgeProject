@@ -26,6 +26,22 @@ namespace _03_Badges
             }
             return false;
         }
+
+        //Update 
+        public bool UpdateABadge(int newBadgeId, Badge newBadge)
+        {
+            Badge oldBadgeId = GetBadgeByBadgeID(newBadgeId);
+            if (oldBadgeId != null)
+            {
+                oldBadgeId.BadgeID = newBadge.BadgeID;
+                oldBadgeId.DoorName = newBadge.DoorName;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         //Read 
         public Dictionary<int,Badge> GetAllBadges()
         {
@@ -44,6 +60,7 @@ namespace _03_Badges
                 }
             }
             return null;
+
         }
 
         //Add BadeToDictionary

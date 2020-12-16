@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace _01_CafeClasses
 {
-    // holds CRUD method
     public class CafeRepo
-    {
-        //class level variable 
+    { 
         private List<Meal> _listOfMeals = new List<Meal>();
         //create 
         public void AddMealToMenu(Meal meal)

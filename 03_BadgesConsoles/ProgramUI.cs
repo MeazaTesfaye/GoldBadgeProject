@@ -22,8 +22,9 @@ namespace _03_BadgesConsoles
             Console.WriteLine("Hello Security Admin, What would you like to do?\n" +
                 "1. AddBadge\n" +
                 "2. Edit a Badge\n" +
-                "3. List all Badges" +
-                "4. Exit");
+                "3. List all Badges\n" +
+                "4. Remove" +
+                "5. Exit");
             switch (Console.ReadLine())
             {
                 case "1":
@@ -33,11 +34,17 @@ namespace _03_BadgesConsoles
                 case "2":
                     //Edit
                     //UpdateDoors();
+                    
                         break;
                 case "3":
                     //List all Badges
+                    ViewAllDoors();
                     break;
                 case "4":
+                    //Remove
+                    DeleteExistingBadge();
+                    break;
+                case "5":
                     //Exit
                     return false;
                     break;

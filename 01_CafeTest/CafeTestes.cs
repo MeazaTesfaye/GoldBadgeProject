@@ -32,9 +32,10 @@ namespace _01_CafeTest
 
             //Act
             cafe.AddMealToMenu(meal);
-            Meal mealFromDirectory = cafe.GetMealByMealName("salad");
+            Meal mealFromDirectory = cafe.GetMealByMealName(meal.MealName);
 
             //Assert
+            List<Meal> meaDirectory = cafe.GetListOfMeals();
             Assert.IsNotNull(mealFromDirectory);
 
         }
