@@ -1,9 +1,6 @@
 ﻿using _03_Badges;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace _03_BadgesConsoles
 {
@@ -13,17 +10,27 @@ namespace _03_BadgesConsoles
         public void Run()
         {
             SeeData();
-            Menu();
+            while (Menu())
+            {
+                Console.WriteLine("Press any key to continue...");
+                Console.ReadKey();
+                Console.Clear();
+            }
+
+            Console.WriteLine("Goodbye!\n" +
+                "Press an key to exit...");
+            Console.ReadKey();
         }
 
         public bool Menu()
         {
+            
             Console.Clear();
             Console.WriteLine("Hello Security Admin, What would you like to do?\n" +
                 "1. AddBadge\n" +
                 "2. Edit a Badge\n" +
                 "3. List all Badges\n" +
-                "4. Remove" +
+                "4. Remove\n" +
                 "5. Exit");
             switch (Console.ReadLine())
             {
@@ -33,9 +40,9 @@ namespace _03_BadgesConsoles
                     break;
                 case "2":
                     //Edit
-                    //UpdateDoors();
-                    
-                        break;
+                    UpdateDoors();
+
+                    break;
                 case "3":
                     //List all Badges
                     ViewAllDoors();
@@ -59,7 +66,7 @@ namespace _03_BadgesConsoles
         {
             Console.Clear();
             Badge newBadge = new Badge();
-            Console.WriteLine("Please enter the bade number");
+            Console.WriteLine("Please enter the badge number");
             string badgeId = Console.ReadLine();
             newBadge.BadgeID = int.Parse(badgeId);
             newBadge.DoorName = newBadge.DoorName;
@@ -74,20 +81,18 @@ namespace _03_BadgesConsoles
 
         }
         //update
-        public bool UpdateDoors(int badgeId, Badge newBadge)
+        public void UpdateDoors()
         {
-            Badge oldBadgeid =  (badgeId);
-            if (newBadge != null)
-            {
-                oldBadgeid.BadgeID = newBadge.BadgeID;
-                oldBadgeid.DoorName = newBadge.DoorName;
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            Console.Clear();
+            ViewAllDoors();
+            Console.WriteLine("Enter Badge Id you would like to update");
+            int badgeID = int.Parse(Console.ReadLine());
+
+            Badge badge = badgesRepo.GetBadgeByBadgeID(badgeID);
+            Console.WriteLine($"Badge ID: {badge.BadgeID}\n" +
+                $"Door Name: {badge.BadgeID}");
         }
+
 
         //Delete
         private void DeleteExistingBadge()
@@ -98,20 +103,29 @@ namespace _03_BadgesConsoles
         }
 
         // list
-        private void ViewAllDoors ()
+        private void ViewAllDoors()
         {
             Console.Clear();
-            Dictionary<int, Badge> listOfBadges = badgesRepo.GetAllBadges();
-            foreach(KeyValuePair<int, Badge> value in listOfBadges)
+            Dictionary<int, List<Badge>> listOfBadges = badgesRepo.GetAllBadges();
+            foreach (KeyValuePair<int, List<Badge>> value in listOfBadges)
             {
-                Console.WriteLine($"BadgeID: {value.Key}" +
-                    $"DoorName: {value.Value.DoorName}");
+                foreach (var doors in value.Value)
+                {
+
+                    Console.WriteLine($"BadgeID: {doors.BadgeID}\n" +
+                        $"DoorName: {doors.DoorName}");
+                }
             }
-            
+
+        }
+
+        private void DisplayBadge()
+        {
+
         }
     }
 
 }
 
-   
+
 

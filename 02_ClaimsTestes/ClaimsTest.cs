@@ -7,7 +7,8 @@ namespace _02_ClaimsTestes
     [TestClass]
     public class ClaimsTest
     {
-        [TestMethod]
+        //        [TestMethod]
+        //Add
         public void TestForAddingClaim()
         {
             //Arrange
@@ -16,13 +17,20 @@ namespace _02_ClaimsTestes
 
             //Act
             claimsRepo.AddClaim(claim);
-            Claims claimFromClaimsID = claimsRepo.GetCalimByClaimID(claimsRepo.ClaimID);
+            Claims claimFromClaimsID = claimsRepo.GetCalimByClaimID(claimsRepo.);
             //claim
 
             //Assert 
 
-            
+
 
         }
+        //update
+        public void TestForUpdatingClaims()
+        {
+
+        }
+
+        //Create
     }
 }

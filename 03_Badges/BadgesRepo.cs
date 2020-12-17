@@ -1,21 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace _03_Badges
 {
     public class BadgesRepo
     {
-        private Dictionary<int, Badge> _badges = new Dictionary<int, Badge>();
+        private Dictionary<int, List<Badge>> _badges = new Dictionary<int, List<Badge>>();
         //Create a new badges
         public void AddBadge(Badge badge)
         {
-            _badges.Add(badge.BadgeID,badge);
+            List<Badge> badges = new List<Badge>();
+            badges.Add(badge);
+            _badges.Add(badge.BadgeID, badges);
         }
 
-       
+
         //Delete all doors from an existing badge
         private bool DeleteAllDoors(int badgeID)
         {
@@ -43,7 +41,7 @@ namespace _03_Badges
             }
         }
         //Read 
-        public Dictionary<int,Badge> GetAllBadges()
+        public Dictionary<int, List<Badge>> GetAllBadges()
         {
             return _badges;
         }
@@ -51,22 +49,28 @@ namespace _03_Badges
         // Helper
         public Badge GetBadgeByBadgeID(int badgeid)
         {
-                Dictionary<int, Badge> badgeIDs = _badges.Get
-                foreach(Badge badges in _badges)
+
+            foreach (KeyValuePair<int, List<Badge>> kVp in _badges)
             {
-                if (badges.BadgeID == badgeid)
+                if (kVp.Key == badgeid)
                 {
-                    return badges;
+                    foreach (var door in kVp.Value)
+
+                    {
+                        Badge value = door;
+                        return value;
+                    }
+                    
                 }
+                
             }
             return null;
 
         }
 
-        //Add BadeToDictionary
-        public void AddBadgeToDictionary(Dictionary<int,Badge> badgeCollection )
-        {
 
-        }
+    
+
+
     }
 }

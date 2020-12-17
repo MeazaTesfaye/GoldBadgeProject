@@ -10,29 +10,29 @@ namespace _01_CafeTest
     {
         private Meal _meal;
         private CafeRepo _cafeRepo;
-        
+
 
         [TestInitialize]
         public void MealTest()
         {
-            _meal = new Meal (1, "Taco Salad", "Mixed Greens", 8.95, 
-              OurMenu.Salad, new List<string>() 
+            _meal = new Meal(1, "Taco Salad", "Mixed Greens", 8.95,
+              OurMenu.Salad, new List<string>()
             { "Chile, Sour Cream, Tomatoes" });
             _cafeRepo = new CafeRepo();
             _cafeRepo.AddMealToMenu(_meal);
         }
-        //Add
+       // Add
         [TestMethod]
         public void AddToListNotNull()
         {
             //Arrange
             Meal meal = new Meal();
-            meal.MealName = "salad";
+            meal.MealName = "Salad";
             CafeRepo cafe = new CafeRepo();
 
             //Act
             cafe.AddMealToMenu(meal);
-            Meal mealFromDirectory = cafe.GetMealByMealName(meal.MealName);
+            Meal mealFromDirectory = cafe.GetMealByMealName("Salad");
 
             //Assert
             List<Meal> meaDirectory = cafe.GetListOfMeals();
@@ -44,10 +44,7 @@ namespace _01_CafeTest
         [TestMethod]
         public void RemoveMealFromList()
         {
-            //Arrange
-            Meal meal = new Meal();
-            meal.MealName = "salad";
-            CafeRepo cafe = new CafeRepo();
+            
 
             //Act
             bool deleteMeal = _cafeRepo.RemoveMealFromList(_meal.MealName);
