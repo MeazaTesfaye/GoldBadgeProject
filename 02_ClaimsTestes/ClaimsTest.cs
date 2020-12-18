@@ -101,7 +101,7 @@ namespace _02_ClaimsTestes
             //Act
             Queue<Claims> listFromRepo = claimsRepo.GetAllClaims();
             //Assert
-            Assert.IsNotNull(listFromRepo)
+            Assert.IsNotNull(listFromRepo); 
         }
     }
 }

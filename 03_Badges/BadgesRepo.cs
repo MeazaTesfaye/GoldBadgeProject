@@ -17,7 +17,7 @@ namespace _03_Badges
 
 
         //Delete all doors from an existing badge
-        private bool DeleteAllDoors(int badgeID)
+        public  bool DeleteAllDoors(int badgeID)
         {
             Badge badges = GetBadgeByBadgeID(badgeID);
             if (_badges.Remove(badgeID))
