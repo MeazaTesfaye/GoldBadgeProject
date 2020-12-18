@@ -69,8 +69,6 @@ namespace _03_BadgesTestes
             Assert.IsTrue(removeBadge);
         }
 
-
-
         [TestMethod]
         //View or show
         public void ShowListWithBadges()

@@ -13,3 +13,5 @@ C:\ElevenFiftyProjects\GoldBadgeChalleges\GoldBadge\03_BadgesConsoles\bin\Debug\
 C:\ElevenFiftyProjects\GoldBadgeChalleges\GoldBadge\03_BadgesConsoles\obj\Debug\03_BadgesConsoles.csproj.CopyComplete
 C:\ElevenFiftyProjects\GoldBadgeChalleges\GoldBadge\03_BadgesConsoles\obj\Debug\03_BadgesConsoles.exe
 C:\ElevenFiftyProjects\GoldBadgeChalleges\GoldBadge\03_BadgesConsoles\obj\Debug\03_BadgesConsoles.pdb
+C:\ElevenFiftyProjects\GoldBadgeChalleges\GoldBadge\03_BadgesConsoles\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\ElevenFiftyProjects\GoldBadgeChalleges\GoldBadge\03_BadgesConsoles\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml

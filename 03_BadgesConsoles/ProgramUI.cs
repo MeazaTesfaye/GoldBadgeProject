@@ -21,10 +21,8 @@ namespace _03_BadgesConsoles
                 "Press an key to exit...");
             Console.ReadKey();
         }
-
         public bool Menu()
         {
-            
             Console.Clear();
             Console.WriteLine("Hello Security Admin, What would you like to do?\n" +
                 "1. AddBadge\n" +
@@ -66,7 +64,7 @@ namespace _03_BadgesConsoles
         {
             Console.Clear();
             Badge newBadge = new Badge();
-            Console.WriteLine("Please enter the badge number");
+            Console.WriteLine("Please enter the badge Id");
             string badgeId = Console.ReadLine();
             newBadge.BadgeID = int.Parse(badgeId);
             newBadge.DoorName = newBadge.DoorName;
@@ -78,7 +76,6 @@ namespace _03_BadgesConsoles
             var badge2 = new Badge(2130, new List<string> { "B5", "A10", "A30" });
             badgesRepo.AddBadge(badge1);
             badgesRepo.AddBadge(badge2);
-
         }
         //update
         public void UpdateDoors()
@@ -93,15 +90,39 @@ namespace _03_BadgesConsoles
                 $"Door Name: {badge.BadgeID}");
         }
 
-
         //Delete
         private void DeleteExistingBadge()
         {
             Console.Clear();
             ViewAllDoors();
-            Console.WriteLine("");
-        }
 
+            Console.WriteLine("Enter Id of the door you would like to remove:");
+            int badgeId = int.Parse(Console.ReadLine());
+            Console.Clear();
+            var doorToDelete = badgesRepo.GetBadgeByBadgeID(badgeId);
+
+            Console.WriteLine("Are you sure you want to remove :(yes or no) ");
+            foreach (var item in doorToDelete.DoorName)
+            {
+                Console.WriteLine(" "+ item) ;
+
+            }
+            
+            string ans = Console.ReadLine();
+            if (ans.ToLower() == "yes" || ans.ToLower() == "y")
+            {
+
+                if (badgesRepo.DeleteAllDoors(badgeId))
+                {
+                    Console.WriteLine("The Id was successfully deleted");
+                }
+                else
+                {
+                    Console.WriteLine("The Id could not be deleted");
+                }
+
+            }
+        }
         // list
         private void ViewAllDoors()
         {

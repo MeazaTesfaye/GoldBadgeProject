@@ -17,12 +17,19 @@ namespace _03_Badges
 
 
         //Delete all doors from an existing badge
-        public  bool DeleteAllDoors(int badgeID)
+        public bool DeleteAllDoors(int badgeID)
         {
-            Badge badges = GetBadgeByBadgeID(badgeID);
-            if (_badges.Remove(badgeID))
+            // Badge badges = GetBadgeByBadgeID(badgeID);
+            foreach (KeyValuePair<int, Badge> item in _badges)
             {
-                return true;
+                if (item.Key == badgeID)
+                {
+                    if (_badges.Remove(item.Key))
+                    {
+                        return true;
+                    }
+                    return false;
+                }
             }
             return false;
         }
@@ -64,10 +71,6 @@ namespace _03_Badges
             return null;
 
         }
-
-
-    
-
 
     }
 }
