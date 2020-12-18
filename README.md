@@ -1,0 +1,2 @@
+# Console Application 
+GoldBadge project has three Console Applications with ProgramUI, Repository, and Unit Test. The Cafe Application allow managers to create new menu items, delete menu, and receive a list of all items on the cafe's menu. The second Application allows insurance claim to be made up to 30 days after an incident took place. The last application will allow a security staff create new badge, update, delete and show list with badge numbers and door access.
