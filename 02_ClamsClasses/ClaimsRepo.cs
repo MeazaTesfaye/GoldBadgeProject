@@ -17,9 +17,9 @@ namespace _02_ClaimsClasses
             return claimIDs;
         }
         // update
-        public bool UpdateExistingClaims(int newclaimID, Claims newClaims)
+        public bool UpdateExistingClaims(int originalId, Claims newClaims)
         {
-            Claims oldClaimId = GetCalimByClaimID(newclaimID);
+            Claims oldClaimId = GetCalimByClaimID(originalId);
             if(oldClaimId != null)
             {
                 oldClaimId.ClaimID = newClaims.ClaimID;

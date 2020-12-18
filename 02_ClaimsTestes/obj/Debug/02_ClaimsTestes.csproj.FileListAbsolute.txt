@@ -12,3 +12,7 @@ C:\ElevenFiftyProjects\GoldBadgeChalleges\GoldBadge\02_ClaimsTestes\obj\Debug\02
 C:\ElevenFiftyProjects\GoldBadgeChalleges\GoldBadge\02_ClaimsTestes\obj\Debug\02_ClaimsTestes.csproj.CopyComplete
 C:\ElevenFiftyProjects\GoldBadgeChalleges\GoldBadge\02_ClaimsTestes\obj\Debug\02_ClaimsTestes.dll
 C:\ElevenFiftyProjects\GoldBadgeChalleges\GoldBadge\02_ClaimsTestes\obj\Debug\02_ClaimsTestes.pdb
+C:\ElevenFiftyProjects\GoldBadgeChalleges\GoldBadge\02_ClaimsTestes\bin\Debug\01_CafeClasses.dll
+C:\ElevenFiftyProjects\GoldBadgeChalleges\GoldBadge\02_ClaimsTestes\bin\Debug\02_ClamsClasses.dll
+C:\ElevenFiftyProjects\GoldBadgeChalleges\GoldBadge\02_ClaimsTestes\bin\Debug\01_CafeClasses.pdb
+C:\ElevenFiftyProjects\GoldBadgeChalleges\GoldBadge\02_ClaimsTestes\bin\Debug\02_ClamsClasses.pdb

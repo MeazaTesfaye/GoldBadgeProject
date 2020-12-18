@@ -74,8 +74,8 @@ namespace _03_BadgesConsoles
         private void SeeData()
         {
             //public Badge(int 12345 badgeId, string doorName)A5
-            var badge1 = new Badge(2127, "A5");
-            var badge2 = new Badge(0912, "A7");
+            var badge1 = new Badge(2127, new List<string> { "A5", "A7", "A8"});
+            var badge2 = new Badge(2130, new List<string> { "B5", "A10", "A30" });
             badgesRepo.AddBadge(badge1);
             badgesRepo.AddBadge(badge2);
 
@@ -106,23 +106,21 @@ namespace _03_BadgesConsoles
         private void ViewAllDoors()
         {
             Console.Clear();
-            Dictionary<int, List<Badge>> listOfBadges = badgesRepo.GetAllBadges();
-            foreach (KeyValuePair<int, List<Badge>> value in listOfBadges)
+            Dictionary<int, Badge> listOfBadges = badgesRepo.GetAllBadges();
+            foreach (KeyValuePair<int, Badge> value in listOfBadges)
             {
-                foreach (var doors in value.Value)
+                Console.WriteLine($"BadgeID: {value.Key}");
+                foreach (string doors in value.Value.DoorName)
                 {
+                    Console.WriteLine($"DoorName: {doors}");
 
-                    Console.WriteLine($"BadgeID: {doors.BadgeID}\n" +
-                        $"DoorName: {doors.DoorName}");
                 }
             }
 
         }
 
-        private void DisplayBadge()
-        {
-
-        }
+        
+        
     }
 
 }

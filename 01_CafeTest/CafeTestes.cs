@@ -20,6 +20,7 @@ namespace _01_CafeTest
             { "Chile, Sour Cream, Tomatoes" });
             _cafeRepo = new CafeRepo();
             _cafeRepo.AddMealToMenu(_meal);
+            
         }
        // Add
         [TestMethod]
@@ -44,7 +45,7 @@ namespace _01_CafeTest
         [TestMethod]
         public void RemoveMealFromList()
         {
-            
+            //Arrange
 
             //Act
             bool deleteMeal = _cafeRepo.RemoveMealFromList(_meal.MealName);

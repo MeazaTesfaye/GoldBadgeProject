@@ -4,13 +4,15 @@ namespace _03_Badges
 {
     public class BadgesRepo
     {
-        private Dictionary<int, List<Badge>> _badges = new Dictionary<int, List<Badge>>();
+        private Dictionary<int, Badge> _badges = new Dictionary<int, Badge>();
         //Create a new badges
         public void AddBadge(Badge badge)
+
         {
-            List<Badge> badges = new List<Badge>();
-            badges.Add(badge);
-            _badges.Add(badge.BadgeID, badges);
+           // badge.BadgeID = 0;
+            Badge addBadge = new Badge(badge.BadgeID, badge.DoorName);
+           
+            _badges.Add(badge.BadgeID,addBadge);
         }
 
 
@@ -41,7 +43,7 @@ namespace _03_Badges
             }
         }
         //Read 
-        public Dictionary<int, List<Badge>> GetAllBadges()
+        public Dictionary<int, Badge> GetAllBadges()
         {
             return _badges;
         }
@@ -50,16 +52,11 @@ namespace _03_Badges
         public Badge GetBadgeByBadgeID(int badgeid)
         {
 
-            foreach (KeyValuePair<int, List<Badge>> kVp in _badges)
+            foreach (KeyValuePair<int, Badge> kVp in _badges)
             {
                 if (kVp.Key == badgeid)
                 {
-                    foreach (var door in kVp.Value)
-
-                    {
-                        Badge value = door;
-                        return value;
-                    }
+                    return kVp.Value;
                     
                 }
                 

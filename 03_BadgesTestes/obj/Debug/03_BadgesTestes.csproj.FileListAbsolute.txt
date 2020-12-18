@@ -12,3 +12,5 @@ C:\ElevenFiftyProjects\GoldBadgeChalleges\GoldBadge\03_BadgesTestes\obj\Debug\03
 C:\ElevenFiftyProjects\GoldBadgeChalleges\GoldBadge\03_BadgesTestes\obj\Debug\03_BadgesTestes.csproj.CopyComplete
 C:\ElevenFiftyProjects\GoldBadgeChalleges\GoldBadge\03_BadgesTestes\obj\Debug\03_BadgesTestes.dll
 C:\ElevenFiftyProjects\GoldBadgeChalleges\GoldBadge\03_BadgesTestes\obj\Debug\03_BadgesTestes.pdb
+C:\ElevenFiftyProjects\GoldBadgeChalleges\GoldBadge\03_BadgesTestes\bin\Debug\03_Badges.dll
+C:\ElevenFiftyProjects\GoldBadgeChalleges\GoldBadge\03_BadgesTestes\bin\Debug\03_Badges.pdb
