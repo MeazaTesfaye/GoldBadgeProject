@@ -28,8 +28,9 @@ namespace _03_BadgesConsoles
                 "1. AddBadge\n" +
                 "2. Edit a Badge\n" +
                 "3. List all Badges\n" +
-                "4. Remove\n" +
-                "5. Exit");
+                "4. Remove all doors\n" +
+                "5. Remove single door\n" +
+                "6. Exit");
             switch (Console.ReadLine())
             {
                 case "1":
@@ -50,9 +51,13 @@ namespace _03_BadgesConsoles
                     DeleteExistingBadge();
                     break;
                 case "5":
+                    //Remove Single door
+                    RemoveSingleDoorFromBadge();
+                    break;
+                case "6":
                     //Exit
                     return false;
-                    break;
+                    
                 default:
                     Console.WriteLine("Please enter a valid option");
                     break;
@@ -140,8 +145,47 @@ namespace _03_BadgesConsoles
 
         }
 
-        
-        
+        public void RemoveSingleDoorFromBadge()
+        {
+            Console.Clear();
+            ViewAllDoors();
+            Console.WriteLine("Enter ID");
+
+            int id = int.Parse(Console.ReadLine());
+            //ViewByID();
+            var test = badgesRepo.GetBadgeByBadgeID(id);
+
+            // string name= test.DoorName.
+            Console.WriteLine("Enter door name to Remove");
+            string intName = Console.ReadLine();
+            if (test.DoorName.Remove(intName))
+            {
+                Console.WriteLine("Door Removed");
+            }
+            else
+            {
+                Console.WriteLine("Name not found");
+            }
+            Console.WriteLine("Do you want to remove another Door?");
+            string ans = Console.ReadLine();
+            if (ans.ToLower() == "yes")
+            {
+                RemoveSingleDoorFromBadge();
+            }
+            else if (ans.ToLower() == "no")
+            {
+
+            }
+            else
+            {
+                Console.WriteLine("please enter a valid Value");
+                RemoveSingleDoorFromBadge();
+                   
+            }
+
+        }
+
+
     }
 
 }
